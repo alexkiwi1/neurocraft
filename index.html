@@ -6,1436 +6,494 @@
 <title>НейроКрафт — безопасные инструменты для творчества и развития</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --yellow: #fdda00;
-  --yellow-light: #fff4b0;
-  --yellow-dark: #e6c600;
-  --brown: #8B6914;
-  --brown-dark: #5a4510;
-  --cardboard: #c8a86e;
-  --cardboard-light: #dfc49a;
-  --cardboard-dark: #a07e48;
-  --text: #2d2a26;
-  --text-light: #5a5550;
-  --white: #ffffff;
-  --off-white: #faf8f3;
-  --radius: 16px;
-  --radius-sm: 10px;
-  --shadow: 0 4px 24px rgba(45,42,38,0.10);
-  --shadow-lg: 0 8px 40px rgba(45,42,38,0.14);
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --yellow:#fdda00;--yellow-light:#fff4b0;--yellow-dark:#e6c600;
+  --brown:#8B6914;--brown-dark:#5a4510;
+  --cardboard:#c8a86e;--cardboard-light:#dfc49a;
+  --text:#2d2a26;--text-light:#5a5550;
+  --white:#ffffff;--off-white:#faf8f3;
+  --radius:16px;--radius-sm:10px;
+  --shadow:0 4px 24px rgba(45,42,38,.10);
+  --shadow-lg:0 8px 40px rgba(45,42,38,.14);
 }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Nunito', sans-serif;
-  color: var(--text);
-  background: var(--off-white);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Comfortaa', sans-serif;
-  line-height: 1.2;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-img { display: block; max-width: 100%; }
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:var(--text);background:var(--off-white);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Comfortaa',sans-serif;line-height:1.2}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+img{display:block;max-width:100%}
 
 /* ===== NAV ===== */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 2px solid var(--yellow);
-  transition: box-shadow 0.3s;
-}
-nav.scrolled { box-shadow: var(--shadow); }
-
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 68px;
-}
-
-.nav-logo {
-  height: 38px;
-  width: auto;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  align-items: center;
-}
-.nav-links a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 3px;
-  background: var(--yellow);
-  border-radius: 2px;
-  transition: width 0.3s;
-}
-.nav-links a:hover::after { width: 100%; }
-.nav-links a:hover { color: var(--brown); }
-
-.nav-cta {
-  background: var(--yellow);
-  color: var(--text) !important;
-  padding: 10px 24px;
-  border-radius: 50px;
-  font-weight: 700 !important;
-  transition: all 0.3s !important;
-}
-.nav-cta::after { display: none !important; }
-.nav-cta:hover {
-  background: var(--yellow-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(253,218,0,0.4);
-}
-
-.burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
-}
-.burger span {
-  width: 26px; height: 3px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--yellow);transition:box-shadow .3s}
+nav.scrolled{box-shadow:var(--shadow)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{height:32px;width:auto}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:600;font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:var(--brown)}
+.nav-cta{background:var(--yellow);color:var(--text)!important;padding:8px 22px;border-radius:50px;font-weight:700!important;transition:all .3s!important}
+.nav-cta:hover{background:var(--yellow-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(253,218,0,.4)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{width:26px;height:3px;background:var(--text);border-radius:2px;transition:all .3s}
 
 /* ===== HERO ===== */
-.hero {
-  padding: 120px 0 80px;
-  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-light) 50%, var(--off-white) 100%);
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a86e' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
-}
+.hero{margin-top:60px;position:relative;min-height:500px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(45,42,38,.85) 0%,rgba(45,42,38,.6) 45%,rgba(45,42,38,.15) 100%)}
+.hero-content{position:relative;z-index:1;max-width:560px;padding:72px 0}
+.hero-content h1{font-size:2.5rem;font-weight:700;color:var(--yellow);margin-bottom:4px}
+.hero-content h2{font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.35}
+.hero-desc{font-size:.95rem;color:rgba(255,255,255,.82);margin-bottom:28px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--text);padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-primary:hover{background:var(--yellow-dark);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-primary svg{width:18px;height:18px}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--text);padding:12px 28px;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;border:2px solid var(--yellow-dark);cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-secondary:hover{background:var(--yellow-dark);transform:translateY(-2px)}
 
-.hero-content {
-  position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 48px;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  color: var(--text-light);
-  margin-bottom: 24px;
-  font-weight: 600;
-  max-width: 480px;
-}
-
-.hero-badges {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-}
-.hero-badge {
-  background: var(--white);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.hero-badge svg { width: 18px; height: 18px; fill: var(--yellow-dark); }
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--text);
-  color: var(--white);
-  padding: 16px 36px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: inherit;
-}
-.btn-primary:hover {
-  background: var(--brown-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-.btn-primary svg { width: 20px; height: 20px; }
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--yellow);
-  color: var(--text);
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-  border: 2px solid var(--yellow-dark);
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: inherit;
-}
-.btn-secondary:hover {
-  background: var(--yellow-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(253,218,0,0.35);
-}
-
-.hero-visual {
-  position: relative;
-}
-
-.hero-image-box {
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-  border: 4px solid var(--white);
-}
-.hero-image-box img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-.hero-float {
-  position: absolute;
-  background: var(--white);
-  border-radius: 16px;
-  padding: 12px 20px;
-  box-shadow: var(--shadow);
-  animation: heroFloat 4s ease-in-out infinite;
-  font-weight: 700;
-  font-size: 0.85rem;
-  white-space: nowrap;
-  z-index: 2;
-}
-.hero-float.f1 { top: -10px; right: -10px; animation-delay: 0s; }
-.hero-float.f2 { bottom: 20px; left: -20px; animation-delay: 1.5s; }
-
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* ===== SECTIONS ===== */
-section { padding: 80px 0; }
-
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 16px;
-}
-.section-title span { color: var(--brown); }
-
-.section-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--text-light);
-  max-width: 700px;
-  margin: 0 auto 48px;
-}
+/* ===== SECTION BASICS ===== */
+section{padding:72px 0}
+.section-title{font-size:1.9rem;font-weight:700;text-align:center;margin-bottom:14px}
+.section-title span{color:var(--brown)}
+.section-subtitle{text-align:center;font-size:1rem;color:var(--text-light);max-width:680px;margin:0 auto 40px}
 
 /* ===== WHAT IS ===== */
-.what-is { background: var(--white); }
+.what-is{background:var(--white)}
+.what-is-card{background:var(--off-white);border-radius:24px;padding:48px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.what-is-text h2{font-size:2rem;margin-bottom:18px}
+.what-is-text h2 span{color:var(--brown)}
+.what-is-text .lead{font-size:.95rem;color:var(--text-light);margin-bottom:18px;line-height:1.7}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.feature-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;line-height:1.5}
+.feature-icon{width:30px;height:30px;min-width:30px;background:var(--yellow);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.what-is-img{border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.what-is-img img{width:100%;height:360px;object-fit:cover}
 
-.what-is-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
+/* ===== WHAT WE HEAR ===== */
+.what-we-hear{background:var(--white);padding-top:0}
+.hear-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.hear-item{display:flex;align-items:flex-start;gap:14px}
+.hear-emoji{font-size:1.4rem;min-width:32px;text-align:center;margin-top:2px}
+.hear-item h4{font-size:.95rem;color:var(--brown);margin-bottom:2px}
+.hear-item p{font-size:.88rem;color:var(--text-light);line-height:1.5}
 
-.what-is-text p.lead {
-  font-size: 1.15rem;
-  margin-bottom: 28px;
-  line-height: 1.7;
-}
+/* ===== SAFE TOOLS — use illustration image ===== */
+.safe-tools{background:var(--off-white)}
+.tools-image{max-width:900px;margin:0 auto;padding:20px 0}
+.tools-image img{width:100%;height:auto}
 
-.feature-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.feature-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-.feature-icon {
-  width: 36px; height: 36px; min-width: 36px;
-  background: var(--yellow);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
+/* ===== HOW IT WORKS — use diagram image ===== */
+.how-works{background:var(--cardboard-light);position:relative}
+.how-works-img{max-width:900px;margin:0 auto}
+.how-works-img img{width:100%;height:auto;border-radius:12px}
 
-.what-is-quote {
-  margin-top: 28px;
-  padding: 20px 24px;
-  background: linear-gradient(135deg, var(--yellow-light), rgba(253,218,0,0.15));
-  border-radius: var(--radius);
-  border-left: 4px solid var(--yellow);
-  font-weight: 700;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
+/* ===== SCHOOLS — photo cards with text BELOW like mockup ===== */
+.for-schools{background:var(--white)}
+.schools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.photo-card{transition:transform .3s}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-card-img{border-radius:14px;overflow:hidden;aspect-ratio:3/4;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.photo-card-img img{width:100%;height:100%;object-fit:cover}
+.photo-card h4{font-size:.88rem;font-weight:700;margin-bottom:4px;line-height:1.3}
+.photo-card p{font-size:.8rem;color:var(--text-light);line-height:1.45}
 
-.what-is-img {
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 4px solid var(--white);
-}
-.what-is-img img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-}
-
-/* ===== SAFE TOOLS ===== */
-.safe-tools {
-  background: var(--off-white);
-  overflow: hidden;
-}
-
-.tools-scroll {
-  display: flex;
-  gap: 28px;
-  padding: 20px 0;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.tool-card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 28px 20px;
-  text-align: center;
-  width: 150px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  transition: all 0.3s;
-  border: 2px solid transparent;
-}
-.tool-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow);
-  border-color: var(--yellow);
-}
-.tool-emoji { font-size: 2.2rem; margin-bottom: 12px; display: block; }
-.tool-name {
-  font-family: 'Comfortaa', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-}
-.tool-action {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  font-weight: 600;
-}
-
-/* ===== HOW IT WORKS ===== */
-.how-works {
-  background:
-    linear-gradient(rgba(200,168,110,0.15), rgba(200,168,110,0.15)),
-    var(--cardboard-light);
-  position: relative;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  position: relative;
-  margin-bottom: 32px;
-}
-.steps-grid::before {
-  content: '';
-  position: absolute;
-  top: 56px; left: 14%; right: 14%;
-  height: 3px;
-  background: repeating-linear-gradient(90deg, var(--yellow-dark), var(--yellow-dark) 8px, transparent 8px, transparent 14px);
-}
-
-.step-card { text-align: center; position: relative; z-index: 1; }
-
-.step-number {
-  width: 56px; height: 56px;
-  background: var(--white);
-  border: 4px solid var(--yellow);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-  font-size: 1.5rem;
-}
-
-.step-label {
-  font-family: 'Comfortaa', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  background: var(--yellow);
-  display: inline-block;
-  padding: 6px 20px;
-  border-radius: 50px;
-  margin-bottom: 10px;
-}
-
-.step-desc {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  max-width: 200px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-.repeat-label {
-  text-align: center;
-  font-family: 'Comfortaa', sans-serif;
-  font-weight: 700;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-.repeat-label .arrow { font-size: 1.5rem; color: var(--yellow-dark); }
-
-/* ===== GALLERY ===== */
-.gallery {
-  background: var(--white);
-  padding: 64px 0;
-  overflow: hidden;
-}
-
-.gallery-track {
-  display: flex;
-  gap: 16px;
-  animation: scrollGallery 30s linear infinite;
-  width: max-content;
-}
-
-.gallery-track img {
-  height: 260px;
-  width: auto;
-  border-radius: 16px;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
-}
-.gallery-track img:hover {
-  transform: scale(1.03);
-}
-
-@keyframes scrollGallery {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ===== AUDIENCE ===== */
-.audience { background: var(--off-white); }
-
-.audience-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 40px;
-}
-.audience-tab {
-  padding: 12px 28px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  border: 2px solid var(--yellow);
-  background: transparent;
-  color: var(--text);
-  font-family: inherit;
-  transition: all 0.3s;
-}
-.audience-tab.active { background: var(--yellow); }
-.audience-tab:hover:not(.active) { background: var(--yellow-light); }
-
-.audience-panel { display: none; }
-.audience-panel.active { display: block; }
-
-.audience-hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-  align-items: center;
-}
-.audience-hero-img {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.audience-hero-img img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-
-.audience-hero-text h3 {
-  font-size: 1.6rem;
-  margin-bottom: 16px;
-}
-.audience-hero-text p {
-  font-size: 1.05rem;
-  color: var(--text-light);
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.audience-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 24px;
-  border: 2px solid transparent;
-  transition: all 0.3s;
-}
-.audience-card:hover {
-  border-color: var(--yellow);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-
-.audience-card-icon {
-  width: 48px; height: 48px;
-  background: var(--yellow);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  margin-bottom: 14px;
-}
-.audience-card h4 { font-size: 1rem; margin-bottom: 6px; }
-.audience-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+/* ===== PARENTS — photo cards with text BELOW ===== */
+.for-parents{background:var(--off-white)}
+.parents-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
 
 /* ===== KITS ===== */
-.kits { background: var(--white); }
+.kits{background:var(--white)}
+.kits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.kit-card{background:var(--off-white);border-radius:18px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.05);transition:all .3s;display:flex;flex-direction:column;border:2px solid transparent}
+.kit-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--yellow)}
+.kit-card.featured{border-color:var(--yellow);position:relative}
+.kit-card.featured::before{content:'Популярный';position:absolute;top:12px;right:12px;background:var(--yellow);color:var(--text);padding:3px 12px;border-radius:50px;font-size:.72rem;font-weight:700;z-index:2}
+.kit-image{height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--yellow-light),var(--off-white))}
+.kit-image .kit-icon{font-size:3.5rem}
+.kit-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.kit-name{font-family:'Comfortaa',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:3px}
+.kit-name span{color:var(--brown)}
+.kit-capacity{font-size:.8rem;color:var(--text-light);margin-bottom:8px;font-weight:600}
+.kit-desc{font-size:.85rem;color:var(--text-light);line-height:1.55;flex:1;margin-bottom:14px}
 
-.kits-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
+/* ===== МГПУ + MATERIALS (light bg like mockup) ===== */
+.mgpu{background:var(--off-white)}
+.mgpu-header{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.mgpu-header img{height:36px}
+.mgpu-header .x-sign{font-size:1.4rem;color:var(--text-light);font-weight:700}
+.mgpu-header .partner-badge{background:var(--white);border:2px solid var(--yellow);border-radius:12px;padding:8px 16px;font-size:.78rem;font-weight:700;color:var(--brown);text-align:center;line-height:1.3}
+.mgpu-content{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+.mgpu-text h3{font-size:1.3rem;margin-bottom:12px}
+.mgpu-text p{font-size:.92rem;color:var(--text-light);line-height:1.7;margin-bottom:20px}
+.mgpu-video{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;background:#000}
+.mgpu-video iframe{width:100%;height:100%;border:none}
 
-.kit-card {
-  background: var(--off-white);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid transparent;
-}
-.kit-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--yellow);
-}
-.kit-card.featured {
-  border-color: var(--yellow);
-  position: relative;
-  background: linear-gradient(180deg, var(--yellow-light) 0%, var(--off-white) 40%);
-}
-.kit-card.featured::before {
-  content: 'Популярный';
-  position: absolute;
-  top: 16px; right: 16px;
-  background: var(--yellow);
-  color: var(--text);
-  padding: 4px 14px;
-  border-radius: 50px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  z-index: 2;
-}
-
-.kit-image {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--yellow-light) 0%, var(--off-white) 100%);
-}
-.kit-image .kit-icon { font-size: 4rem; }
-
-.kit-body {
-  padding: 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.kit-name {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.kit-name span { color: var(--brown); }
-
-.kit-capacity {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.kit-desc {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  line-height: 1.6;
-  flex: 1;
-  margin-bottom: 20px;
-}
-
-/* ===== SOLUTIONS ===== */
-.solutions {
-  background: var(--text);
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-.solutions::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fdda00' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.solutions .container { position: relative; z-index: 1; }
-.solutions .section-title { color: var(--white); }
-.solutions .section-title span { color: var(--yellow); }
-
-.solutions-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-.solutions-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 28px;
-}
-.solutions-visual {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-.solutions-visual img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-}
-
-/* ===== APROBATION ===== */
-.aprobation {
-  background: var(--white);
-  text-align: center;
-}
-.aprobation-image {
-  max-width: 820px;
-  margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 4px solid var(--yellow);
-}
-.aprobation-image img {
-  width: 100%;
-  height: auto;
-}
-
-/* ===== SHOWCASE ===== */
-.showcase {
-  background: var(--off-white);
-  padding: 64px 0;
-}
-.showcase-title {
-  text-align: center;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 36px;
-}
-.showcase-title span { color: var(--brown); }
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.showcase-item {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  transition: all 0.4s;
-  cursor: pointer;
-}
-.showcase-item:hover {
-  transform: scale(1.04);
-  box-shadow: var(--shadow-lg);
-}
-.showcase-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.showcase-item:first-child {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-.showcase-item:first-child img {
-  height: 100%;
-}
+/* ===== TESTIMONIALS ===== */
+.testimonials{background:var(--white)}
+.testimonials-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.testimonial-thumb{width:140px;height:180px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s;cursor:pointer;position:relative}
+.testimonial-thumb:hover{transform:scale(1.05)}
+.testimonial-thumb img{width:100%;height:100%;object-fit:cover}
 
 /* ===== FAQ ===== */
-.faq { background: var(--off-white); }
-
-.faq-list {
-  max-width: 760px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.faq-item {
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-}
-.faq-item.open { border-color: var(--yellow); }
-
-.faq-q {
-  width: 100%;
-  padding: 20px 24px;
-  background: none;
-  border: none;
-  font-family: inherit;
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  color: var(--text);
-}
-.faq-icon {
-  min-width: 28px; height: 28px;
-  background: var(--yellow-light);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: all 0.3s;
-}
-.faq-item.open .faq-icon {
-  background: var(--yellow);
-  transform: rotate(45deg);
-}
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-.faq-item.open .faq-a { max-height: 300px; }
-.faq-a-inner {
-  padding: 0 24px 20px;
-  color: var(--text-light);
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
+.faq{background:var(--off-white)}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--white);border-radius:var(--radius);overflow:hidden;border:2px solid transparent;transition:border-color .3s}
+.faq-item.open{border-color:var(--yellow)}
+.faq-q{width:100%;padding:16px 22px;background:none;border:none;font-family:inherit;font-size:.95rem;font-weight:700;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;color:var(--text)}
+.faq-icon{min-width:26px;height:26px;background:var(--yellow-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s}
+.faq-item.open .faq-icon{background:var(--yellow);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 22px 16px;color:var(--text-light);line-height:1.7;font-size:.9rem}
 
 /* ===== CONTACT ===== */
-.contact {
-  background: var(--yellow);
-  position: relative;
-  overflow: hidden;
-}
-.contact::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d2a26' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.contact .container { position: relative; z-index: 1; }
-
-.contact-inner {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-.contact .section-title { margin-bottom: 12px; }
-.contact-desc {
-  font-size: 1.05rem;
-  color: var(--text-light);
-  margin-bottom: 36px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 16px 20px;
-  border-radius: var(--radius-sm);
-  border: 2px solid rgba(45,42,38,0.12);
-  font-family: inherit;
-  font-size: 1rem;
-  background: var(--white);
-  transition: border-color 0.3s, box-shadow 0.3s;
-  outline: none;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--text);
-  box-shadow: 0 0 0 4px rgba(45,42,38,0.08);
-}
-.contact-form textarea { resize: vertical; min-height: 100px; }
-.contact-form .btn-primary { align-self: center; padding: 16px 48px; }
+.contact{background:var(--yellow);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%232d2a26' fill-opacity='.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.contact .container{position:relative;z-index:1}
+.contact-inner{max-width:560px;margin:0 auto;text-align:center}
+.contact .section-title{margin-bottom:8px}
+.contact-desc{font-size:.95rem;color:var(--text-light);margin-bottom:28px}
+.contact-form{display:flex;flex-direction:column;gap:12px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 18px;border-radius:var(--radius-sm);border:2px solid rgba(45,42,38,.1);font-family:inherit;font-size:.92rem;background:var(--white);transition:border-color .3s;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--text);box-shadow:0 0 0 4px rgba(45,42,38,.06)}
+.contact-form textarea{resize:vertical;min-height:80px}
+.contact-form .btn-primary{align-self:center}
 
 /* ===== FOOTER ===== */
-footer {
-  background: var(--text);
-  color: rgba(255,255,255,0.7);
-  padding: 48px 0 32px;
-}
-.footer-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 36px;
-}
-.footer-logo { height: 30px; width: auto; margin-bottom: 12px; filter: brightness(0) invert(1); }
-.footer-brand p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  max-width: 300px;
-}
-.footer-col h4 {
-  color: var(--white);
-  font-size: 0.95rem;
-  margin-bottom: 16px;
-}
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.footer-col a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--yellow); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
-  text-align: center;
-  font-size: 0.85rem;
-}
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 0 24px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.footer-logo{height:26px;width:auto;margin-bottom:10px;filter:brightness(0) invert(1)}
+.footer-brand p{font-size:.82rem;line-height:1.6;max-width:280px}
+.footer-col h4{color:var(--white);font-size:.88rem;margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .2s}
+.footer-col a:hover{color:var(--yellow)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;text-align:center;font-size:.8rem}
 
-/* ===== SCROLL ANIMATIONS ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 960px) {
-  .hero-content { grid-template-columns: 1fr; gap: 32px; }
-  .hero-text { text-align: center; }
-  .hero-text h1 { font-size: 2.4rem; }
-  .hero-subtitle { margin: 0 auto 24px; }
-  .hero-badges { justify-content: center; }
-  .hero-visual { order: -1; }
-  .hero-image-box img { height: 300px; }
-
-  .what-is-grid { grid-template-columns: 1fr; gap: 32px; }
-  .what-is-img img { height: 300px; }
-
-  .steps-grid { grid-template-columns: repeat(2, 1fr); }
-  .steps-grid::before { display: none; }
-
-  .kits-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-
-  .solutions-inner { grid-template-columns: 1fr; }
-  .audience-hero { grid-template-columns: 1fr; }
-
-  .showcase-grid { grid-template-columns: repeat(2, 1fr); }
-  .showcase-item:first-child { grid-column: span 2; grid-row: span 1; }
-  .showcase-item:first-child img { height: 260px; }
-
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+@media(max-width:960px){
+  .hero{min-height:400px}
+  .hero-content h1{font-size:2rem}
+  .hero-content h2{font-size:1.15rem}
+  .what-is-card{grid-template-columns:1fr;padding:28px}
+  .what-is-img img{height:260px}
+  .schools-grid{grid-template-columns:repeat(2,1fr)}
+  .parents-grid{grid-template-columns:repeat(3,1fr)}
+  .kits-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}
+  .mgpu-content{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:20px}
 }
-
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .burger { display: flex; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 68px; left: 0; right: 0;
-    background: var(--white);
-    padding: 24px;
-    gap: 16px;
-    box-shadow: var(--shadow);
-    border-bottom: 2px solid var(--yellow);
-  }
-
-  section { padding: 60px 0; }
-  .section-title { font-size: 1.7rem; }
-  .hero { padding: 100px 0 60px; }
-  .hero-text h1 { font-size: 2rem; }
-  .audience-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .tools-scroll { gap: 12px; }
-  .tool-card { width: 120px; padding: 18px 12px; }
-
-  .showcase-grid { grid-template-columns: 1fr 1fr; }
-  .showcase-item:first-child { grid-column: span 2; }
-
-  .gallery-track img { height: 180px; }
-
-  .audience-tabs { flex-direction: column; align-items: center; }
+@media(max-width:768px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--white);padding:20px;gap:14px;box-shadow:var(--shadow);border-bottom:2px solid var(--yellow)}
+  section{padding:52px 0}
+  .section-title{font-size:1.5rem}
+  .hero{min-height:340px}
+  .hero-content{padding:48px 0}
+  .hero-content h1{font-size:1.6rem}
+  .schools-grid{grid-template-columns:repeat(2,1fr)}
+  .parents-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .testimonials-row{gap:10px}
+  .testimonial-thumb{width:100px;height:130px}
+}
+@media(max-width:480px){
+  .parents-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ========== NAV ========== -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#">
-      <img src="img/logo.png" alt="НейроКрафт" class="nav-logo">
-    </a>
+    <a href="#"><img src="img/logo.png" alt="НейроКрафт" class="nav-logo"></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#kits">О наборах</a></li>
-      <li><a href="#audience">Для родителей</a></li>
-      <li><a href="#schools">Для школ</a></li>
+      <li><a href="#for-parents">Для&nbsp;родителей</a></li>
+      <li><a href="#for-schools">Для&nbsp;школ</a></li>
       <li><a href="#contact" class="nav-cta">Заказать</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Меню">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ========== HERO — full-width bg image ========== -->
 <section class="hero" id="hero">
+  <div class="hero-bg"><img src="img/boys-cutting.png" alt=""></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-text">
-        <h1>нейрокрафт</h1>
-        <p class="hero-subtitle">Набор инструментов, который с детства развивает инженеров и изобретателей</p>
-        <div class="hero-badges">
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            Для детей от 6 лет
-          </div>
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            В школах и дома
-          </div>
-        </div>
-        <a href="#kits" class="btn-primary">
-          Купить набор
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-        </a>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-image-box">
-          <img src="img/hero-robots.jpg" alt="Дети с картонными роботами">
-        </div>
-        <div class="hero-float f1">🔧 Безопасно</div>
-        <div class="hero-float f2">♻️ Многоразовый</div>
-      </div>
+      <h1>нейрокрафт</h1>
+      <h2>— безопасные инструменты для творчества и развития</h2>
+      <p class="hero-desc">Картон, безопасные инструменты — всё, что нужно, чтобы развивать моторику, инженерное мышление и креативность. Бесконечное количество проектов — подходит и&nbsp;для&nbsp;урока ребёнка, и&nbsp;целого&nbsp;класса.</p>
+      <a href="#kits" class="btn-primary">
+        Купить набор
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- WHAT IS -->
+<!-- ========== WHAT IS ========== -->
 <section class="what-is" id="about">
   <div class="container">
-    <h2 class="section-title reveal">Что такое <span>нейрокрафт</span></h2>
-    <div class="what-is-grid">
-      <div class="what-is-text reveal">
-        <p class="lead">НейроКрафт — это конструктор, который учит детей думать, проектировать и создавать руками, используя самый доступный материал — картон.</p>
+    <div class="what-is-card reveal">
+      <div class="what-is-text">
+        <h2>Что такое <span>нейрокрафт</span></h2>
+        <p class="lead">НейроКрафт превращает обычный картон в увлекательный конструктор.</p>
         <ul class="feature-list">
-          <li>
-            <div class="feature-icon">🧠</div>
-            <span>Формирует инженерное и проектное мышление</span>
-          </li>
-          <li>
-            <div class="feature-icon">✋</div>
-            <span>Развивает мелкую моторику и пространственное воображение</span>
-          </li>
-          <li>
-            <div class="feature-icon">🤝</div>
-            <span>Учит коммуникации и командной работе</span>
-          </li>
-          <li>
-            <div class="feature-icon">📦</div>
-            <span>Используйте дешёвые расходные материалы</span>
-          </li>
+          <li><div class="feature-icon">🧠</div><span>Мы создали набор для детей, чтобы каждый мог почувствовать себя творцом</span></li>
+          <li><div class="feature-icon">✋</div><span>Инструменты создают «порог» — настоящий практический вызов: ребёнку нужно думать, считать и строить свои собственные игрушки и конструкции</span></li>
+          <li><div class="feature-icon">📦</div><span>Картон — бесплатный материал, а инструменты многоразовые</span></li>
         </ul>
-        <div class="what-is-quote">
-          Один набор — сотни проектов.<br>
-          Единственное ограничение — фантазия.
+      </div>
+      <div class="what-is-img">
+        <img src="img/hero-robots.jpg" alt="Дети с картонными роботами">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHAT WE HEAR ========== -->
+<section class="what-we-hear">
+  <div class="container">
+    <h2 class="section-title reveal">Что мы слышим <span>чаще всего</span></h2>
+    <div class="hear-list reveal">
+      <div class="hear-item">
+        <span class="hear-emoji">👨‍👩‍👧</span>
+        <div>
+          <h4>Ребёнок зависает в гаджетах</h4>
+          <p>Родители ищут способ увлечь ребёнка реальным делом, а не экраном телефона и «создания контента»</p>
         </div>
       </div>
-      <div class="what-is-visual reveal">
-        <div class="what-is-img">
-          <img src="img/tools-closeup.png" alt="Дети работают с инструментами НейроКрафт">
+      <div class="hear-item">
+        <span class="hear-emoji">🧩</span>
+        <div>
+          <h4>Мурашки от стекла дорого и быстро надоедают</h4>
+          <p>Типичные конструкторы стоят дорого и собираются раз в жизни. Здесь каждый раз — новое</p>
+        </div>
+      </div>
+      <div class="hear-item">
+        <span class="hear-emoji">🎯</span>
+        <div>
+          <h4>Творчество «на длину»</h4>
+          <p>Дети хотят конструктор на 1 раз. Сделай → собери → сломай → в «мусор». А тут конструктор рассчитан на 100 с!</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SAFE TOOLS -->
+<!-- ========== SAFE TOOLS — illustration image ========== -->
 <section class="safe-tools" id="tools">
   <div class="container">
     <h2 class="section-title reveal">Безопасные инструменты, <span>разработанные для детей</span></h2>
-    <p class="section-subtitle reveal">Каждый инструмент спроектирован так, чтобы ребёнок не мог порезаться или пораниться</p>
-    <div class="tools-scroll reveal">
-      <div class="tool-card">
-        <span class="tool-emoji">🔪</span>
-        <div class="tool-name">Нож-пила</div>
-        <div class="tool-action">Разрезай</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-emoji">🪛</span>
-        <div class="tool-name">Отвёртка</div>
-        <div class="tool-action">Прикручивай</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-emoji">📐</span>
-        <div class="tool-name">Перфоратор</div>
-        <div class="tool-action">Делай сгиб</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-emoji">🕳️</span>
-        <div class="tool-name">Дырокол</div>
-        <div class="tool-action">Прокалывай</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-emoji">🔩</span>
-        <div class="tool-name">Шурупы</div>
-        <div class="tool-action">Соединяй</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-emoji">🔗</span>
-        <div class="tool-name">Коннектор</div>
-        <div class="tool-action">Фиксируй</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-emoji">🚪</span>
-        <div class="tool-name">Петля</div>
-        <div class="tool-action">Создавай дверцы</div>
-      </div>
+    <div class="tools-image reveal">
+      <img src="img/tools-illustration.png" alt="Перфоратор, нож-пила, отвёртка — безопасные инструменты НейроКрафт">
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-works" id="how">
+<!-- ========== HOW IT WORKS — diagram image ========== -->
+<section class="how-works">
   <div class="container">
-    <h2 class="section-title reveal" style="margin-bottom: 48px;">Как это <span>работает</span></h2>
-    <div class="steps-grid reveal">
-      <div class="step-card">
-        <div class="step-number">📦</div>
-        <div class="step-label">ВОЗЬМИ</div>
-        <p class="step-desc">Набор НейроКрафт и картон, который легко достать</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">✂️</div>
-        <div class="step-label">СОБЕРИ</div>
-        <p class="step-desc">Режь, складывай и соединяй детали. Создавай любые конструкции</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">🎮</div>
-        <div class="step-label">ИГРАЙ</div>
-        <p class="step-desc">Работай в команде, решай задачи, тестируй идеи</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">♻️</div>
-        <div class="step-label">РАЗБЕРИ</div>
-        <p class="step-desc">Разбери, чтобы использовать детали и картон повторно</p>
-      </div>
-    </div>
-    <div class="repeat-label reveal">
-      <span class="arrow">↩</span> ПОВТОРИ <span class="arrow">↪</span>
+    <div class="how-works-img reveal">
+      <img src="img/how-it-works.png" alt="Возьми → Собери → Играй → Разбери → Повтори">
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery">
-  <div class="gallery-track">
-    <img src="img/hero-robots.jpg" alt="Картонные роботы">
-    <img src="img/cardboard-cat.jpg" alt="Картонный котик">
-    <img src="img/boys-building.jpg" alt="Мальчики строят из картона">
-    <img src="img/cardboard-car.jpg" alt="Картонная машинка">
-    <img src="img/girl-house.png" alt="Девочка в картонном домике">
-    <img src="img/kid-warrior.png" alt="Маленький рыцарь">
-    <img src="img/cardboard-doll.jpg" alt="Картонная матрёшка">
-    <img src="img/classroom-wide.png" alt="Класс за работой">
-    <img src="img/boys-cutting.png" alt="Мальчики вырезают">
-    <img src="img/kid-mask.png" alt="Картонная маска">
-    <!-- Duplicate for seamless loop -->
-    <img src="img/hero-robots.jpg" alt="">
-    <img src="img/cardboard-cat.jpg" alt="">
-    <img src="img/boys-building.jpg" alt="">
-    <img src="img/cardboard-car.jpg" alt="">
-    <img src="img/girl-house.png" alt="">
-    <img src="img/kid-warrior.png" alt="">
-    <img src="img/cardboard-doll.jpg" alt="">
-    <img src="img/classroom-wide.png" alt="">
-    <img src="img/boys-cutting.png" alt="">
-    <img src="img/kid-mask.png" alt="">
-  </div>
-</section>
-
-<!-- AUDIENCE -->
-<section class="audience" id="audience">
+<!-- ========== FOR SCHOOLS — photo cards with text below ========== -->
+<section class="for-schools" id="for-schools">
   <div class="container">
-    <div class="audience-tabs reveal">
-      <button class="audience-tab active" data-panel="schools" id="schools">Для школ и образовательных центров</button>
-      <button class="audience-tab" data-panel="parents">Для родителей</button>
-    </div>
-
-    <div class="audience-panel active" id="panel-schools">
-      <div class="audience-hero reveal">
-        <div class="audience-hero-img">
-          <img src="img/classroom-wide.png" alt="Класс за работой с НейроКрафт">
-        </div>
-        <div class="audience-hero-text">
-          <h3>НейроКрафт адаптирован под реальные условия школы</h3>
-          <p>Простая интеграция в уроки технологии, проектной деятельности и дополнительного образования. Методическая поддержка для педагогов включена.</p>
-        </div>
+    <h2 class="section-title reveal">Для школ <span>и кружков</span></h2>
+    <div class="schools-grid reveal">
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/classroom-work.jpg" alt=""></div>
+        <h4>Занятия становятся живыми</h4>
+        <p>Дети вовлечены в процесс, а не сидят за партами пассивно</p>
       </div>
-      <div class="audience-grid reveal">
-        <div class="audience-card">
-          <div class="audience-card-icon">📋</div>
-          <h4>Подходит под ФГОС</h4>
-          <p>Полное соответствие федеральным образовательным стандартам</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">📚</div>
-          <h4>Простая интеграция в уроки</h4>
-          <p>Легко встраивается в программу обучения</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">👩‍🏫</div>
-          <h4>Методическая поддержка</h4>
-          <p>Готовые материалы для педагогов</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">⚙️</div>
-          <h4>Инженерные навыки</h4>
-          <p>Практическое знакомство с основами инженерии</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">🎯</div>
-          <h4>Живые занятия</h4>
-          <p>Интерактивный формат вовлекает каждого ученика</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">🤝</div>
-          <h4>Командная работа</h4>
-          <p>Дети учатся взаимодействовать и распределять задачи</p>
-        </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/boys-building.jpg" alt=""></div>
+        <h4>Навыки командной работы</h4>
+        <p>Ребёнок учится договариваться, распределять задачи и работать в команде</p>
       </div>
-    </div>
-
-    <div class="audience-panel" id="panel-parents">
-      <div class="audience-hero reveal">
-        <div class="audience-hero-img">
-          <img src="img/girl-house.png" alt="Девочка в картонном домике">
-        </div>
-        <div class="audience-hero-text">
-          <h3>Развивайте ребёнка через увлекательное творчество</h3>
-          <p>НейроКрафт — это часы увлекательной игры без экранов. Ребёнок учится, создаёт и гордится результатом.</p>
-        </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/girls-working.jpg" alt=""></div>
+        <h4>Умение работать руками</h4>
+        <p>Практические навыки, которых не хватает в обычной программе</p>
       </div>
-      <div class="audience-grid reveal">
-        <div class="audience-card">
-          <div class="audience-card-icon">✋</div>
-          <h4>Развиваем мелкую моторику</h4>
-          <p>Работа с инструментами тренирует координацию рук</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">🎲</div>
-          <h4>Навыки в формате игры</h4>
-          <p>Ребёнок учится, даже не замечая этого</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">💪</div>
-          <h4>Учим самостоятельности</h4>
-          <p>Дети планируют и реализуют свои проекты</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">📵</div>
-          <h4>Отвлекаем от экрана</h4>
-          <p>Реальное творчество вместо гаджетов</p>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-icon">🎨</div>
-          <h4>Развиваем креативность</h4>
-          <p>Свобода выражения через конструирование</p>
-        </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/classroom-wide.png" alt=""></div>
+        <h4>Масштабные проекты</h4>
+        <p>Целый класс работает над общим проектом одновременно</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- KITS -->
+<!-- ========== FOR PARENTS — photo cards with text below ========== -->
+<section class="for-parents" id="for-parents">
+  <div class="container">
+    <h2 class="section-title reveal">Для <span>родителей</span></h2>
+    <div class="parents-grid reveal">
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/kid-warrior.png" alt=""></div>
+        <h4>Самостоятельность</h4>
+        <p>Ребёнок сам планирует и воплощает свои проекты</p>
+      </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/kid-mask.png" alt=""></div>
+        <h4>Отвлекаем от экрана телефона</h4>
+        <p>Реальное творчество вместо гаджетов</p>
+      </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/cardboard-cat.jpg" alt=""></div>
+        <h4>Воображение и мышление</h4>
+        <p>Развивает пространственное мышление и креативность</p>
+      </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/girl-house.png" alt=""></div>
+        <h4>Многоразовые конструкции</h4>
+        <p>Собери — разбери — собери снова. Картон бесплатный</p>
+      </div>
+      <div class="photo-card">
+        <div class="photo-card-img"><img src="img/cardboard-car.jpg" alt=""></div>
+        <h4>Учим конструировать</h4>
+        <p>От простых коробок до сложных инженерных решений</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KITS ========== -->
 <section class="kits" id="kits">
   <div class="container">
-    <h2 class="section-title reveal">Наборы <span>инструментов</span></h2>
-    <p class="section-subtitle reveal">Выберите набор НейроКрафт, который подходит именно вам</p>
+    <h2 class="section-title reveal">НАБОРЫ <span>ИНСТРУМЕНТОВ</span></h2>
+    <p class="section-subtitle reveal">Выберите набор НейроКрафт: для дома, кружка или целого класса</p>
     <div class="kits-grid reveal">
       <div class="kit-card">
-        <div class="kit-image">
-          <span class="kit-icon">🧰</span>
-        </div>
+        <div class="kit-image"><span class="kit-icon">🧰</span></div>
         <div class="kit-body">
-          <div class="kit-name">НейроКрафт <span>«Старт»</span></div>
+          <div class="kit-name">Набор <span>«Старт»</span></div>
           <div class="kit-capacity">на 2–5 детей · 143 детали</div>
           <p class="kit-desc">Идеален для дома: ребёнок может мастерить вместе с родителями, братьями, сёстрами или друзьями.</p>
-          <a href="#contact" class="btn-secondary" style="justify-content: center;">Купить</a>
+          <a href="#contact" class="btn-secondary" style="justify-content:center;font-size:.88rem;padding:10px 20px">Купить набор</a>
         </div>
       </div>
       <div class="kit-card featured">
-        <div class="kit-image">
-          <span class="kit-icon">🛠️</span>
-        </div>
+        <div class="kit-image"><span class="kit-icon">🛠️</span></div>
         <div class="kit-body">
-          <div class="kit-name">НейроКрафт <span>«Команда»</span></div>
+          <div class="kit-name">Набор <span>«Команда»</span></div>
           <div class="kit-capacity">на 4–8 детей · 288 деталей</div>
-          <p class="kit-desc">Подходит для небольших компаний или кружков. Дети смогут творить в компании и собирать общую конструкцию вместе.</p>
-          <a href="#contact" class="btn-secondary" style="justify-content: center;">Купить</a>
+          <p class="kit-desc">Подходит для кружков и небольших компаний. Собирайте общую конструкцию вместе.</p>
+          <a href="#contact" class="btn-secondary" style="justify-content:center;font-size:.88rem;padding:10px 20px">Купить набор</a>
         </div>
       </div>
       <div class="kit-card">
-        <div class="kit-image">
-          <span class="kit-icon">🏫</span>
-        </div>
+        <div class="kit-image"><span class="kit-icon">🏫</span></div>
         <div class="kit-body">
-          <div class="kit-name">НейроКрафт <span>«Класс»</span></div>
+          <div class="kit-name">Набор <span>«Класс»</span></div>
           <div class="kit-capacity">на 12–30 детей · 488 деталей</div>
-          <p class="kit-desc">Большой набор для школьного класса. Хватит на всех: можно устроить масштабный проект.</p>
-          <a href="#contact" class="btn-secondary" style="justify-content: center;">Купить</a>
+          <p class="kit-desc">Большой набор для школьного класса. Хватит на всех — устройте масштабный проект.</p>
+          <a href="#contact" class="btn-secondary" style="justify-content:center;font-size:.88rem;padding:10px 20px">Купить набор</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SOLUTIONS -->
-<section class="solutions" id="solutions">
+<!-- ========== МГПУ + ВИДЕО ========== -->
+<section class="mgpu" id="mgpu">
   <div class="container">
-    <div class="solutions-inner">
-      <div class="solutions-text reveal">
-        <h2 class="section-title" style="text-align: left;">Готовые решения <span>для школ</span></h2>
+    <div class="mgpu-header reveal">
+      <img src="img/logo.png" alt="НейроКрафт">
+      <span class="x-sign">×</span>
+      <div class="partner-badge">МОСКОВСКИЙ<br>ГОРОДСКОЙ<br>ПЕДАГОГИЧЕСКИЙ<br>УНИВЕРСИТЕТ</div>
+    </div>
+    <div class="mgpu-content">
+      <div class="mgpu-text reveal">
+        <h3>Методические материалы</h3>
         <p>Инструкции для классов и самостоятельной работы, на основе которых проведёте занимательный урок, построив дом, бионическую руку, голову динозавра и многое другое!</p>
         <a href="#contact" class="btn-secondary">Запросить материалы</a>
       </div>
-      <div class="solutions-visual reveal">
-        <img src="img/boys-cutting.png" alt="Мальчики работают с картоном">
+      <div class="mgpu-video reveal">
+        <iframe src="https://www.youtube.com/embed/YJdk40AKBgU" title="НейроКрафт — видео апробации" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SHOWCASE -->
-<section class="showcase">
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials">
   <div class="container">
-    <h2 class="showcase-title reveal">Что создают <span>дети</span></h2>
-    <div class="showcase-grid reveal">
-      <div class="showcase-item">
-        <img src="img/class-celebrate.png" alt="Класс с проектами">
-      </div>
-      <div class="showcase-item">
-        <img src="img/cardboard-cat.jpg" alt="Картонный котик">
-      </div>
-      <div class="showcase-item">
-        <img src="img/cardboard-doll.jpg" alt="Картонная матрёшка">
-      </div>
-      <div class="showcase-item">
-        <img src="img/cardboard-car.jpg" alt="Картонная машинка">
-      </div>
-      <div class="showcase-item">
-        <img src="img/kid-warrior.png" alt="Маленький рыцарь">
-      </div>
+    <h2 class="section-title reveal">Отзывы педагогов, <span>родителей и детей</span></h2>
+    <div class="testimonials-row reveal">
+      <div class="testimonial-thumb"><img src="img/classroom-work.jpg" alt=""></div>
+      <div class="testimonial-thumb"><img src="img/tools-closeup.png" alt=""></div>
+      <div class="testimonial-thumb"><img src="img/class-celebrate.png" alt=""></div>
+      <div class="testimonial-thumb"><img src="img/cardboard-doll.jpg" alt=""></div>
+      <div class="testimonial-thumb"><img src="img/boys-building.jpg" alt=""></div>
     </div>
   </div>
 </section>
 
-<!-- APROBATION -->
-<section class="aprobation">
-  <div class="container">
-    <h2 class="section-title reveal" style="max-width: 800px; margin: 0 auto 16px;">НейроКрафт прошёл апробацию на базе школ <span>МГПУ</span></h2>
-    <p class="section-subtitle reveal">Московский городской педагогический университет</p>
-    <div class="aprobation-image reveal">
-      <img src="img/classroom-work.jpg" alt="Апробация НейроКрафт в школе МГПУ">
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
+<!-- ========== FAQ ========== -->
 <section class="faq" id="faq">
   <div class="container">
     <h2 class="section-title reveal">Часто задаваемые <span>вопросы</span></h2>
     <div class="faq-list reveal">
-      <div class="faq-item">
-        <button class="faq-q">
-          С какого возраста подходит НейроКрафт?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Набор для детей 6+. Дети 8+ обычно работают самостоятельно. Подходит и подросткам, и взрослым — без ограничений по возрасту.</div>
-        </div>
+      <div class="faq-item open">
+        <button class="faq-q">Безопасно ли это?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Да. НейроКрафт сертифицирован. Инструменты разработаны специально для детей: ножом-пилой невозможно порезаться, у отвёртки тупой конец, а все крепления не имеют острых краёв.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          Что нужно для занятий?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Нужен набор инструментов и картон: коробки или листы. Клей, скотч и батарейки не нужны — используются многоразовые крепления из набора.</div>
-        </div>
+        <button class="faq-q">С какого возраста подходит НейроКрафт?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Набор для детей 6+. Дети 8+ обычно работают самостоятельно. Подходит и подросткам, и взрослым — без ограничений по возрасту.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          Что входит в набор?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">В каждый комплект входят: короткий нож-пила, отвёртка, перфоратор для сгибания, дырокол, шурупы, петли и коннекторы. Состав и количество зависят от выбранного комплекта. Также в наборе есть инструкция с идеями для первых проектов.</div>
-        </div>
+        <button class="faq-q">Сколько конструкций можно собрать?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Количество ограничено только фантазией. Картон — бесплатный материал, а инструменты многоразовые. Один набор служит годами: сделай → собери → сломай → и в кассу снова!</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Что нужно для занятий?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Нужен набор инструментов и картон — коробки или листы. Клей, скотч и батарейки не нужны. Используются многоразовые крепления из набора.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Что входит в набор?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">В каждый комплект входят: короткий нож-пила, отвёртка, перфоратор, дырокол, шурупы, петли и коннекторы. Состав зависит от выбранного набора. Также есть инструкция с идеями для первых проектов.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ========== CONTACT ========== -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner reveal">
       <h2 class="section-title">Есть вопросы?</h2>
-      <p class="contact-desc">Оставьте ваши контакты, мы свяжемся и ответим на все вопросы, а также поможем подобрать набор.</p>
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Мы скоро свяжемся с вами.');">
+      <p class="contact-desc">Оставьте ваши контакты — мы свяжемся, ответим на все вопросы и поможем подобрать набор.</p>
+      <form class="contact-form" onsubmit="event.preventDefault();alert('Спасибо! Мы скоро свяжемся с вами.');">
         <div class="form-row">
           <input type="text" placeholder="Ваше имя" required>
           <input type="tel" placeholder="Телефон" required>
         </div>
         <input type="email" placeholder="Email">
         <textarea placeholder="Сообщение (необязательно)"></textarea>
-        <button type="submit" class="btn-primary">
-          Отправить
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-        </button>
+        <button type="submit" class="btn-primary">Отправить</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ========== FOOTER ========== -->
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -1448,7 +506,7 @@ footer {
         <ul>
           <li><a href="#about">О продукте</a></li>
           <li><a href="#kits">Наборы</a></li>
-          <li><a href="#audience">Для школ</a></li>
+          <li><a href="#for-schools">Для школ</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
@@ -1456,55 +514,27 @@ footer {
         <h4>Контакты</h4>
         <ul>
           <li><a href="#contact">Написать нам</a></li>
-          <li><a href="#">info@neurocraft.ru</a></li>
+          <li><a href="mailto:info@neurocraft.ru">info@neurocraft.ru</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2025 НейроКрафт. Все права защищены.
-    </div>
+    <div class="footer-bottom">&copy; 2025 НейроКрафт. Все права защищены.</div>
   </div>
 </footer>
 
 <script>
-// Nav scroll
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
-});
-
-// Burger
-document.getElementById('burger').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
-// Audience tabs
-document.querySelectorAll('.audience-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.audience-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.audience-panel').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20));
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
   });
 });
-
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    const item = q.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  });
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
